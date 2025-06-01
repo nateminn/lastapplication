@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LastApplication — Make This Your Last Job Application</title>
+    <meta name="description" content="Create your profile once. Apply to dozens of jobs instantly. No more filling out the same forms over and over again.">
+    <meta property="og:title" content="LastApplication — Make This Your Last Job Application">
+    <meta property="og:description" content="Create your profile once. Apply to dozens of jobs instantly.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #faf8f5;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Animated background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #faf8f5, #f5f1eb, #ede6d9, #f2ede4);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            z-index: -1;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #007aff, #5ac8fa);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) { 
+            top: 15%; 
+            left: 8%; 
+            animation-delay: 0s; 
+            width: 60px; 
+            height: 60px; 
+        }
+        .floating-element:nth-child(2) { 
+            top: 60%; 
+            right: 12%; 
+            animation-delay: 3s; 
+            width: 100px; 
+            height: 100px; 
+        }
+        .floating-element:nth-child(3) { 
+            bottom: 25%; 
+            left: 15%; 
+            animation-delay: 6s; 
+            width: 70px; 
+            height: 70px; 
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.2; }
+        }
+        
+        /* Header */
+        header {
+            position: relative;
+            z-index: 100;
+            padding: 24px 0;
+            backdrop-filter: blur(20px);
+            background: rgba(250, 248, 245, 0.9);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo span {
+            color: #007aff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 120px 0 160px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            font-weight: 700;
+            margin-bottom: 32px;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 122, 255, 0.1); }
+            to { text-shadow: 0 0 40px rgba(0, 122, 255, 0.2); }
+        }
+        
+        .hero .highlight {
+            color: #007aff;
+            position: relative;
+        }
+        
+        .hero .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #007aff, #5ac8fa);
+            opacity: 0.3;
+            animation: underlineGrow 2s ease-out;
+        }
+        
+        @keyframes underlineGrow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .hero p {
+            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #4a4a4a;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #007aff, #5ac8fa);
+            color: white;
+            padding: 22px 52px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -0.01em;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 122, 255, 0.35);
+        }
+        
+        .hero-visual {
+            margin-top: 80px;
+            position: relative;
+        }
+        
+        .app-mockup {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            border-radius: 24px;
+            padding: 50px;
+            display: inline-block;
+            animation: floatUp 4s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+        
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .workflow {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-step {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 32px 24px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(26, 26, 26, 0.06);
+            animation: pulse 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            min-width: 160px;
+        }
+        
+        .workflow-step:nth-child(2) { animation-delay: 1s; }
+        .workflow-step:nth-child(4) { animation-delay: 2s; }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        
+        .arrow {
+            font-size: 2.5rem;
+            color: #007aff;
+            animation: bounce 2s ease-in-out infinite;
+            font-weight: 300;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 120px 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+        }
+        
+        .problem h2 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pain-point {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 48px 40px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+            animation: slideInUp 0.8s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+        
+        .pain-point:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 122, 255, 0.2);
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pain-point .emoji {
+            font-size: 4.5rem;
+            margin-bottom: 28px;
+            display: block;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .pain-point h3 {
+            font-size: 1.9rem;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        .pain-point p {
+            color: #4a4a4a;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .solution h2 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+        
+        .benefit {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 44px;
+            border-radius: 24px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+        
+        .benefit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #007aff, #5ac8fa);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .benefit:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .benefit:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit h3 {
+            font-size: 1.6rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            letter-spacing: -0.01em;
+        }
+        
+        .benefit p {
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        .checkmark {
+            background: linear-gradient(135deg, #007aff, #5ac8fa);
+            color: white;
+            font-size: 1.1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 120px 0;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+        }
+        
+        .how-it-works h2 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #007aff, #5ac8fa);
+            color: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0 auto 36px;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.25);
+            animation: numberPulse 3s ease-in-out infinite;
+        }
+        
+        .step:nth-child(2) .step-number { animation-delay: 1s; }
+        .step:nth-child(3) .step-number { animation-delay: 2s; }
+        
+        @keyframes numberPulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 20px 40px rgba(0, 122, 255, 0.25); 
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 25px 50px rgba(0, 122, 255, 0.35); 
+            }
+        }
+        
+        .step h3 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        .step p {
+            color: #4a4a4a;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.03), rgba(90, 200, 250, 0.03));
+        }
+        
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+        
+        .final-cta p {
+            font-size: 1.5rem;
+            margin-bottom: 48px;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-seeker {
+            background: linear-gradient(135deg, #007aff, #5ac8fa);
+            color: white;
+            padding: 22px 52px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-employer {
+            background: rgba(255, 255, 255, 0.8);
+            color: #1a1a1a;
+            padding: 22px 52px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: 2px solid rgba(0, 122, 255, 0.3);
+            border-radius: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-seeker:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 122, 255, 0.35);
+        }
+        
+        .cta-employer:hover {
+            background: rgba(0, 122, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: #007aff;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            color: #1a1a1a;
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(26, 26, 26, 0.08);
+        }
+        
+        .footer-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+        
+        .footer-content h3 span {
+            color: #007aff;
+        }
+        
+        .footer-content p {
+            color: #4a4a4a;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(26, 26, 26, 0.08);
+            padding-top: 40px;
+            margin-top: 40px;
+            color: #6a6a6a;
+            font-weight: 400;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .workflow {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-seeker, .cta-employer {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .pain-points,
+            .benefits,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .pain-points {
+                gap: 24px;
+            }
+            
+            .pain-point,
+            .benefit {
+                padding: 32px 24px;
+            }
+            
+            .hero-visual {
+                margin-top: 60px;
+            }
+            
+            .app-mockup {
+                padding: 30px 20px;
+            }
+            
+            .workflow-step {
+                min-width: 140px;
+                padding: 24px 16px;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus styles for accessibility */
+        .cta-button:focus,
+        .cta-seeker:focus,
+        .cta-employer:focus {
+            outline: 2px solid #007aff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Last<span>Application</span></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Make This Your <span class="highlight">Last</span> Job Application</h1>
+            <p>Create your profile once. Apply to dozens of jobs instantly. No more filling out the same forms over and over again.</p>
+            <a href="#signup" class="cta-button">Join the Revolution</a>
+            
+            <div class="hero-visual">
+                <div class="app-mockup">
+                    <div class="workflow">
+                        <div class="workflow-step">
+                            <div style="font-size: 2.8rem; margin-bottom: 16px;">📝</div>
+                            <div style="font-weight: 600; color: #1a1a1a;">Build Once</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="workflow-step">
+                            <div style="font-size: 2.8rem; margin-bottom: 16px;">🎯</div>
+                            <div style="font-weight: 600; color: #1a1a1a;">Apply Everywhere</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="workflow-step">
+                            <div style="font-size: 2.8rem; margin-bottom: 16px;">🚀</div>
+                            <div style="font-weight: 600; color: #1a1a1a;">Get Hired</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>Job Hunting Shouldn't Feel Like Hell</h2>
+            <div class="pain-points">
+                <div class="pain-point">
+                    <span class="emoji">⏰</span>
+                    <h3>Hours Wasted Daily</h3>
+                    <p>Spending 20+ minutes per application copying the same info from your resume into endless, broken forms</p>
+                </div>
+                <div class="pain-point">
+                    <span class="emoji">🔄</span>
+                    <h3>Mind-Numbing Repetition</h3>
+                    <p>Typing your email, phone, and work history for the 47th time this week while your soul slowly dies</p>
+                </div>
+                <div class="pain-point">
+                    <span class="emoji">🕳️</span>
+                    <h3>Applications Disappear</h3>
+                    <p>Forgetting where you applied and never hearing back because you rage-quit halfway through another terrible form</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2>Here's How We Fix Everything</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <h3><span class="checkmark">✓</span> Build Once, Apply Everywhere</h3>
+                    <p>Create your complete profile in 15 minutes. Use it for every job application with just 2 clicks. Never fill out another form again.</p>
+                </div>
+                <div class="benefit">
+                    <h3><span class="checkmark">✓</span> Applications That Actually Work</h3>
+                    <p>Your resume, experience, and preferences are automatically sent to employers in a beautiful, professional format they'll love.</p>
+                </div>
+                <div class="benefit">
+                    <h3><span class="checkmark">✓</span> Stay Organized & Sane</h3>
+                    <p>See all your applications in one gorgeous dashboard. Get notifications when employers view your profile. No more chaos.</p>
+                </div>
+                <div class="benefit">
+                    <h3><span class="checkmark">✓</span> Actually Get Interviews</h3>
+                    <p>Complete, professional applications get 3x more responses than rushed, half-finished forms. Your future self will thank you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works (Stupidly Simple)</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Build Your Master Profile</h3>
+                    <p>Upload your resume and add your details once. We'll save everything securely and make it look amazing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Apply in 2 Clicks</h3>
+                    <p>See "Apply with LastApplication" on any job? Click it. Your complete profile gets sent instantly. That's it.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Track Everything</h3>
+                    <p>Watch your applications, responses, and interview requests roll in through your beautiful dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="signup">
+        <div class="final-cta-content">
+            <div class="container">
+                <h2>Ready to Never Fill Out Another Job Form?</h2>
+                <p>Join 1,247 job seekers who are done with application hell and ready for something better.</p>
+                <div class="cta-buttons">
+                    <a href="https://tally.so/r/YOUR_FORM_ID_HERE" target="_blank" rel="noopener" class="cta-seeker">I'm Looking for Jobs</a>
+                    <a href="https://tally.so/r/YOUR_EMPLOYER_FORM_ID_HERE" target="_blank" rel="noopener" class="cta-employer">I'm Hiring</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Last<span>Application</span></h3>
+                <p>Making job applications simple, once and for all.</p>
+                <p>Questions? Hit us up: hello@lastapplication.com</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LastApplication. Built by people who hate filling out forms.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Analytics (optional) -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Track button clicks (replace with your analytics)
+        document.querySelectorAll('.cta-button, .cta-seeker, .cta-employer').forEach(button => {
+            button.addEventListener('click', function() {
+                // Add your analytics tracking here
+                console.log('Button clicked:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
